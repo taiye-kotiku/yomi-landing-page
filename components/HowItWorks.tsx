@@ -50,10 +50,10 @@ function Step({ step, side, index, isActive }: StepProps) {
       whileInView={{ opacity: isActive ? 1 : 0.38, x: 0 }}
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className={`flex ${side === "right" ? "flex-row-reverse text-right" : "flex-row"} items-start gap-4 mb-10`}
+      className={`flex ${side === "right" ? "flex-row-reverse text-right" : "flex-row"} items-start gap-1 lg:gap-4 mb-4 lg:mb-10`}
     >
       <div
-        className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-black"
+        className="flex-shrink-0 w-5 h-5 lg:w-8 lg:h-8 rounded-full flex items-center justify-center text-[10px] lg:text-sm font-black"
         style={{
           background: isActive ? "#597E55" : "rgba(233,218,182,0.12)",
           color: isActive ? "#fff" : "rgba(233,218,182,0.45)",
@@ -64,13 +64,13 @@ function Step({ step, side, index, isActive }: StepProps) {
       </div>
       <div className="flex-1">
         <div
-          className="font-bold text-lg mb-1"
+          className="font-bold text-[10px] lg:text-lg mb-1 leading-tight"
           style={{ color: isActive ? "#E9DAB6" : "rgba(233,218,182,0.42)" }}
         >
           {step.title}
         </div>
         <div
-          className="text-sm leading-relaxed"
+          className="text-[9px] lg:text-sm leading-relaxed hidden sm:block"
           style={{ color: isActive ? "rgba(233,218,182,0.72)" : "rgba(233,218,182,0.25)" }}
         >
           {step.description}
@@ -110,8 +110,8 @@ export default function HowItWorks() {
           </motion.h2>
         </div>
 
-        {/* 3-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+        {/* 3-column layout — always side by side */}
+        <div className="grid grid-cols-3 gap-2 lg:gap-8 items-center">
           {/* Left steps: 1, 2, 3 */}
           <div>
             {steps.slice(0, 3).map((step, i) => (
@@ -128,7 +128,7 @@ export default function HowItWorks() {
             className="flex justify-center"
           >
             {/* Phone frame wrapper */}
-            <div className="relative mx-auto" style={{ width: "260px" }}>
+            <div className="relative mx-auto w-[120px] md:w-[200px] lg:w-[260px]">
               {/* Phone frame behind */}
               <Image
                 src="/images/img_18_obj38_640x1318.png"
