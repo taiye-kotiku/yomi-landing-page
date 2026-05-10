@@ -30,8 +30,8 @@ const chatImages = [
 export default function SoundFamiliar() {
   return (
     <section
-      className="relative pt-40 pb-24 overflow-hidden"
-      style={{ background: "#1C1E18" }}
+      className="relative pb-24 overflow-hidden"
+      style={{ background: "#1C1E18", paddingTop: "220px" }}
     >
       <div className="max-w-5xl mx-auto px-6">
         {/* Label */}
