@@ -21,8 +21,7 @@ function SpeechBubble({ text, direction = "left", className = "", delay = 0 }: S
       style={{
         background: "#147EFB",
         color: "#fff",
-        borderRadius:
-          direction === "left" ? "18px 18px 18px 4px" : "18px 18px 4px 18px",
+        borderRadius: direction === "left" ? "18px 18px 18px 4px" : "18px 18px 4px 18px",
         zIndex: 20,
       }}
     >
@@ -33,10 +32,7 @@ function SpeechBubble({ text, direction = "left", className = "", delay = 0 }: S
 
 export default function ScreenSaves() {
   return (
-    <section
-      className="py-28 overflow-hidden"
-      style={{ background: "#E9DAB6" }}
-    >
+    <section className="py-28 overflow-hidden" style={{ background: "#E9DAB6" }}>
       <div className="max-w-4xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -67,33 +63,22 @@ export default function ScreenSaves() {
             className="hidden md:block left-0 top-[50%]"
           />
 
-          {/* Center phone with real blocked screen */}
+          {/* Center phone — CSS frame, no black fill */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.92 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7 }}
             className="relative mx-auto"
             style={{ width: "240px", zIndex: 10 }}
           >
-            {/* Phone frame behind */}
-            <Image
-              src="/images/img_21_obj47_644x1324.png"
-              alt="Phone frame"
-              width={644}
-              height={1324}
-              className="w-full h-auto relative z-0"
-              style={{ pointerEvents: "none" }}
-            />
-            {/* App screen on top, inset to sit inside the frame's screen area */}
-            <div
-              className="absolute inset-0 z-10 overflow-hidden"
+            <motion.div
+              animate={{ scale: [1, 1.03, 1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               style={{
-                top: "4.5%",
-                left: "5%",
-                right: "5%",
-                bottom: "3.5%",
-                borderRadius: "14%",
+                borderRadius: "13%",
+                overflow: "hidden",
+                boxShadow: "0 16px 60px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.06)",
               }}
             >
               <Image
@@ -101,9 +86,9 @@ export default function ScreenSaves() {
                 alt="MetaTrader is blocked screen"
                 width={804}
                 height={1748}
-                className="w-full h-full object-cover"
+                className="w-full h-auto block"
               />
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Right bubble — hidden on mobile */}

@@ -7,11 +7,7 @@ export default function Hero() {
   return (
     <section
       className="relative flex flex-col items-center"
-      style={{
-        background: "#E9DAB6",
-        borderRadius: "0 0 40px 40px",
-        paddingTop: "80px",
-      }}
+      style={{ background: "#E9DAB6", borderRadius: "0 0 40px 40px", paddingTop: "80px" }}
     >
       {/* Text content */}
       <div className="max-w-3xl mx-auto px-6 text-center pt-12 pb-10">
@@ -26,6 +22,7 @@ export default function Hero() {
           <br />
           You just can&apos;t stop breaking them.
         </motion.h1>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -33,7 +30,9 @@ export default function Hero() {
           className="leading-relaxed max-w-lg mx-auto"
           style={{ fontSize: "1rem", color: "#3A3D2E" }}
         >
-          TraderScript automatically locks MetaTrader when you break your trading rules. No willpower. No way to bypass it.
+          TraderScript automatically locks MetaTrader when you break your trading rules.
+          <br />
+          No willpower. No way to bypass it.
         </motion.p>
       </div>
 
@@ -42,7 +41,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, delay: 0.5 }}
-        className="relative w-full"
+        className="relative w-full animate-subtle-pulse-slow"
         style={{ marginBottom: "-160px" }}
       >
         <Image

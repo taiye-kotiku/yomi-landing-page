@@ -30,26 +30,17 @@ body {
   50% { transform: translateY(-8px) rotate(3deg); }
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+@keyframes subtlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
 }
 
-.animate-float-slow {
-  animation: floatSlow 4s ease-in-out infinite;
-}
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-float-slow { animation: floatSlow 4s ease-in-out infinite; }
+.animate-float-delay-1 { animation: float 3.5s ease-in-out 0.5s infinite; }
+.animate-float-delay-2 { animation: float 4s ease-in-out 1s infinite; }
+.animate-float-delay-3 { animation: floatSlow 3.8s ease-in-out 1.5s infinite; }
+.animate-float-delay-4 { animation: float 4.2s ease-in-out 2s infinite; }
+.animate-subtle-pulse { animation: subtlePulse 3s ease-in-out infinite; }
+.animate-subtle-pulse-slow { animation: subtlePulse 4.5s ease-in-out 0.8s infinite; }
 
-.animate-float-delay-1 {
-  animation: float 3.5s ease-in-out 0.5s infinite;
-}
-
-.animate-float-delay-2 {
-  animation: float 4s ease-in-out 1s infinite;
-}
-
-.animate-float-delay-3 {
-  animation: floatSlow 3.8s ease-in-out 1.5s infinite;
-}
-
-.animate-float-delay-4 {
-  animation: float 4.2s ease-in-out 2s infinite;
-}

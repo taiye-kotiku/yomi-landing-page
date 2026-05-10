@@ -69,11 +69,12 @@ export default function SoundFamiliar() {
               className={`flex-1 min-w-0 ${img.desktopPadClass}`}
             >
               <motion.div
-                initial={{ opacity: 0, y: 30, rotate: img.rotate }}
-                whileInView={{ opacity: 1, y: 0, rotate: img.rotate }}
+                initial={{ opacity: 0, y: 30, rotate: img.rotate, scale: 0.93 }}
+                whileInView={{ opacity: 1, y: 0, rotate: img.rotate, scale: 1 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: img.delay }}
-                className="rounded-2xl overflow-hidden shadow-xl"
+                className="rounded-2xl overflow-hidden shadow-xl animate-subtle-pulse"
+                style={{ animationDelay: `${i * 1.1}s` }}
               >
                 <Image
                   src={img.src}
