@@ -1,31 +1,38 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const traders = [
   {
-    emoji: "😜",
+    src: "/images/img_8_obj28_1952x2184.png",
+    w: 1952,
+    h: 2184,
     title: "The Revenge\nTrader",
     description:
       "You know what revenge trading is. You've done it 100 times. You tell yourself you won't. You do it anyway. TraderScript makes it physically impossible.",
     delay: 0.1,
-    size: "large",
+    scale: 1,
   },
   {
-    emoji: "🤓",
+    src: "/images/img_7_obj27_1920x2186.png",
+    w: 1920,
+    h: 2186,
     title: "The Rule\nBreaker",
     description:
       "You have a trading plan. A good one. You just don't follow it. Now you don't have a choice.",
     delay: 0.25,
-    size: "xlarge",
+    scale: 1.12,
   },
   {
-    emoji: "👩🏾",
+    src: "/images/img_9_obj29_1888x2222.png",
+    w: 1888,
+    h: 2222,
     title: "The Prop\nTrader",
     description:
       "You're on a funded account. One bad day and it's gone. Set your drawdown limit. Let TraderScript guard it.",
     delay: 0.4,
-    size: "large",
+    scale: 1,
   },
 ];
 
@@ -34,7 +41,7 @@ export default function WhoIsItFor() {
     <section className="py-24" style={{ background: "#E9DAB6" }}>
       <div className="max-w-5xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -60,7 +67,7 @@ export default function WhoIsItFor() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-8 items-end">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
           {traders.map((trader, i) => (
             <motion.div
               key={i}
@@ -68,23 +75,25 @@ export default function WhoIsItFor() {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: trader.delay }}
-              className="flex flex-col items-start pb-6"
+              className="flex flex-col items-start"
             >
-              {/* Avatar emoji */}
+              {/* Real Memoji image */}
               <div
-                className="mb-4 flex items-center justify-center rounded-full select-none"
-                style={{
-                  fontSize: trader.size === "xlarge" ? "100px" : "85px",
-                  width: trader.size === "xlarge" ? "140px" : "120px",
-                  height: trader.size === "xlarge" ? "140px" : "120px",
-                  lineHeight: "1",
-                }}
+                className="mb-2 w-full"
+                style={{ transform: `scale(${trader.scale})`, transformOrigin: "bottom left" }}
               >
-                {trader.emoji}
+                <Image
+                  src={trader.src}
+                  alt={trader.title}
+                  width={trader.w}
+                  height={trader.h}
+                  className="w-32 h-auto"
+                />
               </div>
+
               {/* Title */}
               <h3
-                className="font-black text-xl leading-tight mb-3 whitespace-pre-line"
+                className="font-black text-xl leading-tight mb-2 whitespace-pre-line"
                 style={{ color: "#1C1E18" }}
               >
                 {trader.title}

@@ -1,48 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import PhoneMockup from "./PhoneMockup";
-
-function BlockedScreen() {
-  return (
-    <div
-      className="w-full h-full flex flex-col items-center justify-center px-6 text-center"
-      style={{ background: "#1C1E18" }}
-    >
-      <div className="mb-6">
-        <div
-          className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
-          style={{ background: "rgba(239,83,80,0.15)", border: "1px solid rgba(239,83,80,0.3)" }}
-        >
-          <span className="text-2xl">🔒</span>
-        </div>
-        <div className="text-lg font-black mb-2" style={{ color: "#E9DAB6" }}>
-          MetaTrader is blocked
-        </div>
-        <div className="text-xs leading-relaxed" style={{ color: "rgba(233,218,182,0.5)" }}>
-          You&apos;ve hit your daily max loss limit.
-        </div>
-        <div className="text-xs leading-relaxed mt-1" style={{ color: "rgba(233,218,182,0.4)" }}>
-          Do you remember: &ldquo;I have to build wealth over 10 years, not 10 minutes.&rdquo;
-        </div>
-      </div>
-      <div className="w-full flex flex-col gap-3">
-        <button
-          className="w-full rounded-full py-3 text-sm font-bold"
-          style={{ background: "rgba(255,255,255,0.1)", color: "#E9DAB6" }}
-        >
-          Close Session
-        </button>
-        <button
-          className="w-full rounded-full py-3 text-sm font-bold"
-          style={{ background: "rgba(255,255,255,0.05)", color: "rgba(233,218,182,0.5)" }}
-        >
-          Close
-        </button>
-      </div>
-    </div>
-  );
-}
+import Image from "next/image";
 
 interface SpeechBubbleProps {
   text: string;
@@ -56,9 +15,9 @@ function SpeechBubble({ text, direction = "left", className = "", delay = 0 }: S
     <motion.div
       initial={{ opacity: 0, scale: 0.85 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5, delay }}
-      className={`absolute rounded-2xl px-4 py-3 text-sm font-medium leading-snug max-w-[180px] ${className}`}
+      className={`absolute rounded-2xl px-4 py-3 text-sm font-semibold leading-snug max-w-[190px] shadow-lg ${className}`}
       style={{
         background: "#147EFB",
         color: "#fff",
@@ -92,33 +51,67 @@ export default function ScreenSaves() {
           saves your account.
         </motion.h2>
 
-        {/* Phone + speech bubbles */}
-        <div className="relative flex justify-center" style={{ minHeight: "600px" }}>
+        {/* Phone + floating speech bubbles */}
+        <div className="relative flex justify-center" style={{ minHeight: "580px" }}>
           {/* Left bubbles */}
           <SpeechBubble
             text="You can't delete the app to get around it."
             direction="right"
             delay={0.3}
-            className="left-0 top-1/4"
+            className="left-0 top-[22%]"
           />
           <SpeechBubble
             text="You set the rules. The phone enforces them."
             direction="right"
             delay={0.45}
-            className="left-0 top-1/2"
+            className="left-0 top-[50%]"
           />
 
-          {/* Center phone */}
-          <PhoneMockup borderColor="#2D2F29" bgColor="#1C1E18">
-            <BlockedScreen />
-          </PhoneMockup>
+          {/* Center phone with real blocked screen */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+            className="relative mx-auto"
+            style={{ width: "240px", zIndex: 10 }}
+          >
+            {/* Real iPhone frame on top */}
+            <Image
+              src="/images/img_21_obj47_644x1324.png"
+              alt="Phone frame"
+              width={644}
+              height={1324}
+              className="w-full h-auto relative z-10"
+              style={{ pointerEvents: "none" }}
+            />
+            {/* Real MetaTrader blocked screen inside */}
+            <div
+              className="absolute inset-0 z-0 overflow-hidden"
+              style={{
+                top: "4.5%",
+                left: "5%",
+                right: "5%",
+                bottom: "3.5%",
+                borderRadius: "14%",
+              }}
+            >
+              <Image
+                src="/images/img_22_obj48_804x1748.png"
+                alt="MetaTrader is blocked screen"
+                width={804}
+                height={1748}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
 
           {/* Right bubble */}
           <SpeechBubble
             text="You can't turn it off mid-session."
             direction="left"
             delay={0.35}
-            className="right-0 top-1/3"
+            className="right-0 top-[30%]"
           />
         </div>
       </div>
