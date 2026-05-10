@@ -76,18 +76,18 @@ export default function ScreenSaves() {
             className="relative mx-auto"
             style={{ width: "240px", zIndex: 10 }}
           >
-            {/* Real iPhone frame on top */}
+            {/* Phone frame behind */}
             <Image
               src="/images/img_21_obj47_644x1324.png"
               alt="Phone frame"
               width={644}
               height={1324}
-              className="w-full h-auto relative z-10"
+              className="w-full h-auto relative z-0"
               style={{ pointerEvents: "none" }}
             />
-            {/* Real MetaTrader blocked screen inside */}
+            {/* App screen on top, inset to sit inside the frame's screen area */}
             <div
-              className="absolute inset-0 z-0 overflow-hidden"
+              className="absolute inset-0 z-10 overflow-hidden"
               style={{
                 top: "4.5%",
                 left: "5%",

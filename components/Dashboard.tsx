@@ -107,18 +107,18 @@ export default function Dashboard() {
           className="flex justify-center mb-8"
         >
           <div className="relative mx-auto" style={{ width: "260px" }}>
-            {/* Real iPhone frame on top */}
+            {/* Phone frame behind */}
             <Image
               src="/images/img_18_obj38_640x1318.png"
               alt="Phone frame"
               width={640}
               height={1318}
-              className="w-full h-auto relative z-10"
+              className="w-full h-auto relative z-0"
               style={{ pointerEvents: "none" }}
             />
-            {/* Real discipline/compliance screen inside */}
+            {/* App screen on top, inset to sit inside the frame's screen area */}
             <div
-              className="absolute inset-0 z-0 overflow-hidden"
+              className="absolute inset-0 z-10 overflow-hidden"
               style={{
                 top: "4.5%",
                 left: "5%",
