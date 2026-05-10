@@ -10,6 +10,7 @@ const chatImages = [
     alt: "I'll just recover this one trade / Down $400 more",
     delay: 0.2,
     paddingTop: "0px",
+    rotate: "-2.5deg",
   },
   {
     src: "/images/img_3_obj10_1058x444.png",
@@ -17,6 +18,7 @@ const chatImages = [
     alt: "I already broke my rule once. Might as well.",
     delay: 0.35,
     paddingTop: "80px",
+    rotate: "2deg",
   },
   {
     src: "/images/img_4_obj11_1058x431.png",
@@ -24,6 +26,7 @@ const chatImages = [
     alt: "I'll stop after this one closes. / Bruhhh",
     delay: 0.2,
     paddingTop: "20px",
+    rotate: "-1.5deg",
   },
 ];
 
@@ -59,7 +62,7 @@ export default function SoundFamiliar() {
         </motion.h2>
 
         {/* Staggered chat screenshot images */}
-        <div className="flex flex-col md:flex-row justify-center items-start gap-5">
+        <div className="flex flex-col md:flex-row justify-center items-start gap-4">
           {chatImages.map((img, i) => (
             <div
               key={i}
@@ -72,6 +75,7 @@ export default function SoundFamiliar() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: img.delay }}
                 className="rounded-2xl overflow-hidden shadow-xl"
+                style={{ transform: `rotate(${img.rotate})` }}
               >
                 <Image
                   src={img.src}

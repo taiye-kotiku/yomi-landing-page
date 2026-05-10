@@ -19,7 +19,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="font-black leading-[1.05] mb-5"
+          className="font-black leading-[1.15] mb-5"
           style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)", color: "#1C1E18" }}
         >
           You know the rules.
@@ -33,9 +33,7 @@ export default function Hero() {
           className="leading-relaxed max-w-lg mx-auto"
           style={{ fontSize: "1rem", color: "#3A3D2E" }}
         >
-          TraderScript automatically locks MetaTrader when you break your trading rules.
-          <br />
-          No willpower. No way to bypass it.
+          TraderScript automatically locks MetaTrader when you break your trading rules. No willpower. No way to bypass it.
         </motion.p>
       </div>
 
