@@ -33,7 +33,9 @@ export default function Hero() {
           className="leading-relaxed max-w-lg mx-auto"
           style={{ fontSize: "1rem", color: "#3A3D2E" }}
         >
-          TraderScript automatically locks MetaTrader when you break your trading rules. No willpower. No way to bypass it.
+          TraderScript automatically locks MetaTrader when you break your trading rules.
+          <br />
+          No willpower. No way to bypass it.
         </motion.p>
       </div>
 

@@ -9,21 +9,21 @@ const chatImages = [
     w: 1058, h: 413,
     alt: "I'll just recover this one trade / Down $400 more",
     delay: 0.2,
-    offsetY: 20,
+    paddingTop: "0px",
   },
   {
     src: "/images/img_3_obj10_1058x444.png",
     w: 1058, h: 444,
     alt: "I already broke my rule once. Might as well.",
     delay: 0.35,
-    offsetY: 48,
+    paddingTop: "80px",
   },
   {
     src: "/images/img_4_obj11_1058x431.png",
     w: 1058, h: 431,
     alt: "I'll stop after this one closes. / Bruhhh",
     delay: 0.2,
-    offsetY: 8,
+    paddingTop: "20px",
   },
 ];
 
@@ -58,26 +58,30 @@ export default function SoundFamiliar() {
           Just one more trade
         </motion.h2>
 
-        {/* Real chat screenshot images */}
+        {/* Staggered chat screenshot images */}
         <div className="flex flex-col md:flex-row justify-center items-start gap-5">
           {chatImages.map((img, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 30 + img.offsetY }}
-              whileInView={{ opacity: 1, y: img.offsetY }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: img.delay }}
-              className="flex-1 min-w-0 rounded-2xl overflow-hidden shadow-xl"
-              style={{ maxWidth: "340px" }}
+              className="flex-1 min-w-0"
+              style={{ paddingTop: img.paddingTop }}
             >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                width={img.w}
-                height={img.h}
-                className="w-full h-auto"
-              />
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: img.delay }}
+                className="rounded-2xl overflow-hidden shadow-xl"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  width={img.w}
+                  height={img.h}
+                  className="w-full h-auto"
+                />
+              </motion.div>
+            </div>
           ))}
         </div>
 
@@ -87,7 +91,7 @@ export default function SoundFamiliar() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-16 text-lg leading-relaxed"
+          className="text-center mt-20 text-lg leading-relaxed"
           style={{ color: "rgba(233,218,182,0.7)" }}
         >
           Sound familiar?{" "}
