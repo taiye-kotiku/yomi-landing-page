@@ -20,7 +20,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
           className="font-black leading-[1.15] mb-5"
-          style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)", color: "#1C1E18" }}
+          style={{ fontSize: "min(5.5vw, 4.5rem)", color: "#1C1E18" }}
         >
           You know the rules.
           <br />
