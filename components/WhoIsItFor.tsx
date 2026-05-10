@@ -38,7 +38,7 @@ const traders = [
 
 export default function WhoIsItFor() {
   return (
-    <section className="py-24" style={{ background: "#E9DAB6" }}>
+    <section className="py-24 overflow-x-hidden" style={{ background: "#E9DAB6" }}>
       <div className="max-w-5xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12">

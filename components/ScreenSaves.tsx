@@ -52,19 +52,19 @@ export default function ScreenSaves() {
         </motion.h2>
 
         {/* Phone + floating speech bubbles */}
-        <div className="relative flex justify-center" style={{ minHeight: "580px" }}>
-          {/* Left bubbles */}
+        <div className="relative flex justify-center" style={{ minHeight: "480px" }}>
+          {/* Left bubbles — hidden on mobile */}
           <SpeechBubble
             text="You can't delete the app to get around it."
             direction="right"
             delay={0.3}
-            className="left-0 top-[22%]"
+            className="hidden md:block left-0 top-[22%]"
           />
           <SpeechBubble
             text="You set the rules. The phone enforces them."
             direction="right"
             delay={0.45}
-            className="left-0 top-[50%]"
+            className="hidden md:block left-0 top-[50%]"
           />
 
           {/* Center phone with real blocked screen */}
@@ -106,12 +106,12 @@ export default function ScreenSaves() {
             </div>
           </motion.div>
 
-          {/* Right bubble */}
+          {/* Right bubble — hidden on mobile */}
           <SpeechBubble
             text="You can't turn it off mid-session."
             direction="left"
             delay={0.35}
-            className="right-0 top-[30%]"
+            className="hidden md:block right-0 top-[30%]"
           />
         </div>
       </div>

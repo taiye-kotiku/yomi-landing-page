@@ -9,7 +9,7 @@ const chatImages = [
     w: 1058, h: 413,
     alt: "I'll just recover this one trade / Down $400 more",
     delay: 0.2,
-    paddingTop: "0px",
+    desktopPadClass: "",
     rotate: -2.5,
   },
   {
@@ -17,7 +17,7 @@ const chatImages = [
     w: 1058, h: 444,
     alt: "I already broke my rule once. Might as well.",
     delay: 0.35,
-    paddingTop: "80px",
+    desktopPadClass: "md:pt-20",
     rotate: 2,
   },
   {
@@ -25,7 +25,7 @@ const chatImages = [
     w: 1058, h: 431,
     alt: "I'll stop after this one closes. / Bruhhh",
     delay: 0.2,
-    paddingTop: "20px",
+    desktopPadClass: "md:pt-5",
     rotate: -1.5,
   },
 ];
@@ -66,8 +66,7 @@ export default function SoundFamiliar() {
           {chatImages.map((img, i) => (
             <div
               key={i}
-              className="flex-1 min-w-0"
-              style={{ paddingTop: img.paddingTop }}
+              className={`flex-1 min-w-0 ${img.desktopPadClass}`}
             >
               <motion.div
                 initial={{ opacity: 0, y: 30, rotate: img.rotate }}

@@ -66,7 +66,7 @@ export default function Dashboard() {
             alt={icon.alt}
             width={icon.w}
             height={icon.h}
-            style={{ width: icon.size, height: "auto" }}
+            style={{ width: `clamp(28px, ${icon.size}px, ${icon.size}px)`, height: "auto" }}
           />
         </div>
       ))}
